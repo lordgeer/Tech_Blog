@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // we need to get all Posts and include the User for each (change lines 8 and 9)
-    const postData = await Post.findaAll({
+    const postData = await Post.findAll({
       include: [User],
     });
     // serialize the data
@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
     // we should render all the posts here
     res.render('all-posts', { posts });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
