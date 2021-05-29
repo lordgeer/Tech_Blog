@@ -1,6 +1,25 @@
-<div id="x">
+<div class="row">
+  <div class="col-auto">
+  <h2>Welcome to the offical Tech blog and forum brought to you by our sponsers Duros Brothers Technology Services Limited! </h2>
+  </div>
+</div>
+<br>
+{{#if posts.length}}
+<div class="card flex-column">
   {{#each posts as |post|}}
-  {{> postitem post}}
+  <div class="card-body">
+  <a href="dashboard/edit/{{id}}">
+    <div class="card-header flex-row justify-space-between">
+      <div class="col-8"> {{postTitle}}</div>
+      <div class="col-4">posted by {{user.username}} on {{format_date dateCreated}}</div>
+       </div>  
+  <p class="card-body">
+   {{postContent}}
+  </p>
+</div>
+    </div>  
+  </a>
+</div>
   {{/each}}
 </div>
-
+{{/if}}

@@ -1,14 +1,27 @@
 <div class="row">
   <div class="col-auto">
-    {{!-- this can not be displayed somehow --}}
-  <h2>Welomce{{userId.username}} to the offical Tech blog and forum brought to you by our sponsers Duros Brothers Technology Services Limited! </h2>
+    <h2>Welcome to the offical Tech blog and forum brought to you by our sponsers Duros Brothers Technology Services
+      Limited! </h2>
   </div>
 </div>
 <br>
 {{#if posts.length}}
 <div class="card flex-column">
   {{#each posts as |post|}}
-  {{> edititem post}}
-  {{/each}}
+  <div class="card-body">
+    <a href="/post/{{post.id}}">
+      <div class="card-header flex-row justify-space-between" >
+        <div class="col-8 card-title" id="{{id}}"> {{postTitle}}</div>
+    <div class="col-4">posted by {{user.username}} on {{format_date dateCreated}}</div>
+  </div>
+  </a>
+  <p class="card-body">
+    {{postContent}}
+  </p>
+</div>
+</div>
+
+</div>
+{{/each}}
 </div>
 {{/if}}
