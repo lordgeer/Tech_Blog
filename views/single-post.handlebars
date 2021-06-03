@@ -12,6 +12,7 @@
    {{post.postContent}}
   </p>
 </div>
+
 <input type="hidden" name="post-id" value="{{post.id}}"/>
 <div class="card">
   <div class="card-header"></div>
@@ -21,5 +22,16 @@
     <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
     <button type="submit" class="btn btn-primary">Submit:</button>
   </form>
+</div>
+<div class="card">
+  <div class="card-header"></div>
+  <div class="card-body">
+{{#each post.comments}}
+
+<p>{{this.comment_body}}</p>
+<p>-- {{this.user.username}}, {{format_date this.createdAt}}</p>
+
+{{/each}}
+</div>
 </div>
 <script src="/js/comment.js"></script>
